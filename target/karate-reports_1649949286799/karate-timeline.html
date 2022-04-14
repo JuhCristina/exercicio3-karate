@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"petstore[1:15]","start":1649895285029,"end":1649895285578,"title":"petstore[1:15] 21:14:45.029-21:14:45.578 Cadastrar um novo usuário","className":"failed"},{"id":2,"group":1,"content":"petstore[2:22]","start":1649895285608,"end":1649895286084,"title":"petstore[2:22] 21:14:45.608-21:14:46.084 Consultar usuário cadastrado pelo username","className":"failed"},{"id":3,"group":1,"content":"petstore[3:28]","start":1649895286097,"end":1649895286646,"title":"petstore[3:28] 21:14:46.097-21:14:46.646 Atualizar informações do usuário cadastrado","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
